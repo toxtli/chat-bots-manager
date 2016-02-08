@@ -36,7 +36,7 @@ class Singleton:
     def __instancecheck__(self, inst):
         return isinstance(inst, self._decorated)
 
-class SublimeHelper:
+class SeleniumHelper:
 	driver = None
 	WAIT = 99999
 
@@ -145,30 +145,39 @@ class SublimeHelper:
 		actions.click(element)
 		actions.perform()
 
-class LinkedinChat(SublimeHelper):
+	def moveToElement(self, element):
+		self.driver.execute_script("return arguments[0].scrollIntoView();", element)
+		actions = webdriver.ActionChains(self.driver)
+		actions.move_to_element(element)
+		actions.perform()
+
+class LinkedinChat(SeleniumHelper):
 	LOGIN_USER_VALUE = 'maryleeits@gmail.com'
 	LOGIN_PASS_VALUE = 'edupassword'
 	TIMEOUT = 20
 	READ_URL = 'https://www.linkedin.com/cap/comm/inbox'
 	CHAT_URL = 'https://www.linkedin.com/messaging/compose?connId='
-	# INITIAL_URL = 'https://www.linkedin.com/cap/dashboard/home'
-	INITIAL_URL = 'https://www.linkedin.com'
+	INITIAL_URL = 'https://www.linkedin.com/cap/dashboard/home'
+	# INITIAL_URL = 'https://www.linkedin.com'
 	PROFILE_URL = 'https://www.linkedin.com/profile/view?id='
 	LINKEDIN_URL = 'https://www.linkedin.com'
 	POSTS_URL = 'https://www.linkedin.com/vsearch/ic?type=content&keywords='
 	SEARCH_BAR_PATH = '#main-search-box'
-	# LOGIN_USER_PATH = '#session_key-login'
-	LOGIN_USER_PATH = '#login-email'
-	# LOGIN_PASS_PATH = '#session_password-login'
-	LOGIN_PASS_PATH = '#login-password'
+	LOGIN_USER_PATH = '#session_key-login'
+	# LOGIN_USER_PATH = '#login-email'
+	LOGIN_PASS_PATH = '#session_password-login'
+	# LOGIN_PASS_PATH = '#login-password'
 	LOGIN_SUBMIT_PATH = '#loginbutton > input[type="submit"]'
 	BUTTON_SEND_MESSAGE = '#tc-actions-send-message'
 	TEXTBOX_SUBJECT = '#subject-msgForm'
 	TEXTBOX_GO_SUBJECT = '.compose-subject'
 	TEXTBOX_BODY = '#body-msgForm'
 	TEXTBOX_GO_BODY = '.compose-txtarea'
-	TEXTBOX_COMMENT = '.commentbox-entry'
-	BUTTON_RECRUITER = '.button-secondary'
+	TEXTBOX_FORM = '.commentbox-form'
+	TEXTBOX_CONTAINER = '.mentions-container'
+	TEXTBOX_COMMENT = 'textarea.commentbox-entry'
+	BUTTON_RECRUITER_ONE = '#tc-actions-send-message'
+	BUTTON_RECRUITER_TWO = '.button-secondary'
 	BUTTON_GO_INMAIL = '#tc-actions-send-inmail'
 	BUTTON_SEND_INMAIL = '#compose-dialog-submit'
 	BUTTON_INMAIL = '.send-inmail'
@@ -268,11 +277,8 @@ class LinkedinChat(SublimeHelper):
 
 	def post_message(self, to, body):
 		self.loadPage(to)
-		time.sleep(1)
 		textbox = self.waitShowElement(self.TEXTBOX_COMMENT)
-		self.click(textbox)
-		time.sleep(1)
-		self.click(textbox)
+		self.moveToElement(textbox)
 		time.sleep(1)
 		textbox.send_keys(body)
 		time.sleep(2)
@@ -300,7 +306,7 @@ class LinkedinChat(SublimeHelper):
 	def send_message(self, subject, body, to):
 		self.loadPage(to)
 		time.sleep(1)
-		recruiter = self.getElement(self.BUTTON_RECRUITER)
+		recruiter = self.getElement(self.BUTTON_RECRUITER_ONE)
 		if recruiter:
 			self.click(recruiter)
 			time.sleep(1)
@@ -377,7 +383,7 @@ class LinkedinChat(SublimeHelper):
 		# self.driver = webdriver.Chrome('./chromedriver')
 		self.driver.set_page_load_timeout(self.TIMEOUT)
 
-class FacebookChat(SublimeHelper):
+class FacebookChat(SeleniumHelper):
 	LOGIN_USER_VALUE = 'davidjohnsonits@gmail.com'
 	LOGIN_PASS_VALUE = 'edupassword'
 	TIMEOUT = 7
@@ -591,8 +597,10 @@ class TwitterChat:
 		return exit
 
 	def send_message(self, body, to):
+		print "Sending message"
 		message = '%s %s' % (body, to)
 		self.api.update_status(status=message)
+		print "Message sent"
 		return 'OK'
 
 	def read_messages(self, to):

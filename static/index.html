@@ -1,750 +1,306 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<link rel="stylesheet" href="css/jquery.simple-dtpicker.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/index.css" />
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900,100' rel='stylesheet' type='text/css'>
-
-		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-		<script src="js/jquery.simple-dtpicker.js"></script>
-		<script src="js/index.js"></script>
-	</head>
-	<body>
-		<div id="Application">
-			<div id="Application_Top">
-				<span id="Image_Logo" class="icon-logo-Gus"></span>
-			</div>
-			<div id="Application_Bottom"></div>
-			<div id="Panel_Left">
-				<div id="Container_Tasks">
-					<div class="Container_Tickets Container_Tickets_Active">
-						<div class="Ticket_Main">
-							<div class="Ticket_Title">
-								<span class="icon-whatsapp Image_Whatsapp"></span> Ana Ximenez
-								<div class="Rounded_Number">1</div>
-							</div>
-							<div class="Ticket_Description">
-								Este es el último mensaje que esta persona
-							</div>
-							<div class="Ticket_Elapsed">
-								Hace 2 minutos
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Active">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00023
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_PEDIDO">
-									PEDIDO
-								</div>
-								<div class="Ticket_Secondary_Button Button_COMIDA">
-									COMIDA
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Active">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00024
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_RESERVA">
-									RESERVA
-								</div>
-								<div class="Ticket_Secondary_Button Button_AVION">
-									AVIÓN
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Ended">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00025
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_RESERVA">
-									RESERVA
-								</div>
-								<div class="Ticket_Secondary_Button Button_AVION">
-									AVIÓN
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-					</div>
-					<div class="Container_Tickets">
-						<div class="Ticket_Main">
-							<div class="Ticket_Title">
-								<span class="icon-whatsapp Image_Whatsapp"></span> Juán Rodríguez
-							</div>
-							<div class="Ticket_Description Ticket_Description_Writing">
-								Escribiendo...
-							</div>
-							<div class="Ticket_Elapsed">
-								Hace 2 minutos
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Active">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00023
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_PEDIDO">
-									PEDIDO
-								</div>
-								<div class="Ticket_Secondary_Button Button_COMIDA">
-									COMIDA
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Active">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00024
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_RESERVA">
-									RESERVA
-								</div>
-								<div class="Ticket_Secondary_Button Button_AVION">
-									AVIÓN
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Ended">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00025
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_RESERVA">
-									RESERVA
-								</div>
-								<div class="Ticket_Secondary_Button Button_AVION">
-									AVIÓN
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-					</div>
-					<div class="Container_Tickets">
-						<div class="Ticket_Main">
-							<div class="Ticket_Title">
-								<span class="icon-whatsapp Image_Whatsapp"></span> Juán Rodríguez
-							</div>
-							<div class="Ticket_Description">
-								Este es el último mensaje que esta persona
-							</div>
-							<div class="Ticket_Elapsed">
-								Hace 2 minutos
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Active">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00023
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_PEDIDO">
-									PEDIDO
-								</div>
-								<div class="Ticket_Secondary_Button Button_COMIDA">
-									COMIDA
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Active">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00024
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_RESERVA">
-									RESERVA
-								</div>
-								<div class="Ticket_Secondary_Button Button_AVION">
-									AVIÓN
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-						<div class="Ticket_Secondary Ticket_Secondary_Ended">
-							<div class="Ticket_Secondary_Status">
-							</div>
-							<div class="Ticket_Secondary_Title">
-								#00025
-							</div>
-							<div class="Ticket_Secondary_Buttons">
-								<div class="Ticket_Secondary_Button Button_RESERVA">
-									RESERVA
-								</div>
-								<div class="Ticket_Secondary_Button Button_AVION">
-									AVIÓN
-								</div>
-							</div>
-							<div class="Ticket_Secondary_Description">
-								¿Me puedes mandar una pizza en la noche?
-							</div>
-						</div>
-					</div>
-					<div class="Container_Tickets">
-						<div class="Ticket_Main">
-							<div class="Ticket_Title">
-								<span class="icon-whatsapp Image_Whatsapp"></span> Juán Rodríguez
-							</div>
-							<div class="Ticket_Description">
-								Este es el último mensaje que esta persona
-							</div>
-							<div class="Ticket_Elapsed">
-								Hace 2 minutos
-							</div>
-						</div>
-					</div>
-					<div class="Container_Tickets">
-						<div class="Ticket_Main">
-							<div class="Ticket_Title">
-								<span class="icon-whatsapp Image_Whatsapp"></span> Juán Rodríguez
-							</div>
-							<div class="Ticket_Description">
-								Este es el último mensaje que esta persona
-							</div>
-							<div class="Ticket_Elapsed">
-								Hace 2 minutos
-							</div>
-						</div>
-					</div>
-					<div class="Container_Tickets">
-						<div class="Ticket_Main">
-							<div class="Ticket_Title">
-								<span class="icon-whatsapp Image_Whatsapp"></span> Juán Rodríguez
-							</div>
-							<div class="Ticket_Description">
-								Este es el último mensaje que esta persona
-							</div>
-							<div class="Ticket_Elapsed">
-								Hace 2 minutos
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="Panel_Center">
-				<div id="Container_Chat">
-					<div id="Chat_Topbar">
-						<div id="Chat_Topbar_Left">
-							<div class="Chat_Topbar_Element">
-								<div id="Chat_Topbar_Image">
-									<img id="Chat_Topbar_Avatar" src="img/avatar01.png">
-								</div>
-							</div>
-							<div class="Chat_Topbar_Element">
-								<div id="Chat_Topbar_Name">
-									Ana Ximenez
-								</div>
-							</div>
-						</div>
-						<div id="Chat_Topbar_Right">
-							<div class="Chat_Topbar_Score">
-								<div class="Chat_Topbar_Score_Category">
-									Rating
-								</div>
-								<div class="Chat_Topbar_Score_Value">
-									4.8
-								</div>
-							</div>
-							<div class="Chat_Topbar_Score">
-								<div class="Chat_Topbar_Score_Category">
-									Tiempo promedio
-								</div>
-								<div class="Chat_Topbar_Score_Value">
-									8:23
-								</div>
-							</div>
-							<div class="Chat_Topbar_Score">
-								<div class="Chat_Topbar_Score_Category">
-									Ratio
-								</div>
-								<div class="Chat_Topbar_Score_Value">
-									9/10
-								</div>
-							</div>
-							<div class="Chat_Topbar_Score">
-								<div class="Chat_Topbar_Score_Category">
-									Monto promedio
-								</div>
-								<div class="Chat_Topbar_Score_Value">
-									$1300
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="Chat_Messages">
-						<div class="Chat_Message">
-							<div class="Chat_Message_Sender">
-								¿Me puedes mandar una pizza?
-							</div>
-							<div class="Chat_Message_Options">
-								<div class="Chat_Message_Options_Element">
-									Ayer 15:05
-								</div>
-								<div class="Chat_Message_Options_Element">
-									<span class="icon-destacado Image_Pin_Small"></span> Destacar
-								</div>
-								<div class="Chat_Message_Options_Element Chat_Message_Options_Create">
-									Crear Ticket
-								</div>
-							</div>
-						</div>
-						<div class="Chat_Message">
-							<div class="Chat_Message_Receiver">
-								Esto es un mensaje de varias líneas, el límite de caracteres está definido por el wrapper de 400px
-							</div>
-						</div>
-						<div class="Chat_Message">
-							<div class="Chat_Alert">
-								Eso es una notificación
-							</div>
-						</div>
-						<div class="Chat_Message">
-							<div class="Chat_Message_Sender">
-								Prueba 1
-							</div>
-							<div class="Chat_Message_Options">
-								<div class="Chat_Message_Options_Element">
-									Ayer 15:05
-								</div>
-								<div class="Chat_Message_Options_Element">
-									<span class="icon-destacado Image_Pin_Small"></span> Destacar
-								</div>
-								<div class="Chat_Message_Options_Element Chat_Message_Options_Create">
-									Crear Ticket
-								</div>
-							</div>
-						</div>
-						<div class="Chat_Message">
-							<div class="Chat_Message_Receiver">
-								Prueba 2
-							</div>
-						</div>
-						<div class="Chat_Message">
-							<div class="Chat_Alert">
-								Notificación 2
-							</div>
-						</div>
-						<div class="Chat_Message">
-							<div class="Chat_Display">
-								Tiempo de conversación 02:03
-							</div>
-						</div>
-						<div id="Chat_Profile">
-							<div class="Chat_Profile_Section">
-								<img id="Chat_Topbar_Avatar_Large" src="img/avatar01.png">
-								<div id="Chat_Profile_Contact">
-									<div id="Chat_Profile_Contact_Name">
-										Ana Ximenez
-									</div>
-									<div id="Chat_Profile_Contact_Phone">
-										55-2366-0023
-									</div>
-									<div id="Chat_Profile_Contact_Last">
-										Último ticket: Ayer
-									</div>
-								</div>
-								<div class="Ticket_Secondary_Button Ticket_Secondary_Button_Style1">
-									RESERVA
-								</div>
-								<div class="Ticket_Secondary_Button Ticket_Secondary_Button_Style2">
-									AVIÓN
-								</div>
-								<div class="Ticket_Secondary_Button Ticket_Secondary_Button_Style3">
-									COMIDA
-								</div>
-							</div>
-							<div class="Chat_Profile_Section">
-								<div class="Chat_Profile_Section_Title">
-									<span class="icon-casa Image_Home"></span> 
-									Casa
-								</div>
-								<div class="Chat_Profile_Section_Text Chat_Profile_Section_Description">
-									Protasio Tagle #34 San Miguel Chapultepec CP 06666
-								</div>
-								<div class="Chat_Profile_Section_Title">
-									<span class="icon-trabajo Image_Work"></span> 
-									Trabajo
-								</div>
-								<div class="Chat_Profile_Section_Text Chat_Profile_Section_Description">
-									San Luis Potosi 196 Col Roma Norte CP 06700
-								</div>
-							</div>
-							<div class="Chat_Profile_Section">
-								<div class="Chat_Profile_Section_Title"> 
-									Observaciones
-								</div>
-								<div class="Chat_Profile_Section_Text"> 
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="Chat_Write">
-						<div id="Chat_Textbox" contenteditable="true">
-							Esto es un mensaje de una línea
-						</div>
-						<div id="Chat_Buttons">
-							<div class="Chat_Button">
-								<span id="Message_Schedule" class="icon-programar Image_Programar"></span>
-							</div>
-							<div class="Chat_Button">
-								<span class="icon-send Image_Send"></span> 
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="Container_Suggestions">
-					<div id="Suggestions_Buttons">
-						<div id="Suggestions_Buttons_Left">
-							<div class="Suggestions_Button Suggestions_Button_Selected">
-								Inicio
-							</div>
-							<div class="Suggestions_Button">
-								Orden
-							</div>
-							<div class="Suggestions_Button">
-								Transacción
-							</div>
-							<div class="Suggestions_Button">
-								Cierre
-							</div>
-						</div>
-						<div id="Suggestions_Buttons_Right">
-							<div class="Suggestions_Buttons_Element">
-								Tono formal
-							</div>
-							<div class="Suggestions_Buttons_Element">
-								<img class="Image_Switch Image_Toogleable" src="img/switch-on.png" togglesrc="img/switch-on2.png">
-							</div>
-						</div>
-					</div>
-					<div id="Suggestions_Texts">
-						<div class="Suggestion_Text">
-							¡Hola! Soy Gus y estoy para ayudarte a conseguir cualquier cosa que necesites... En serio, sólo pídelo ;)
-						</div>
-						<div class="Suggestion_Text">
-							Estoy comparando los mejores precios, ¡En un minuto te aviso!
-						</div>
-						<div class="Suggestion_Text">
-							No me gusta decir esto, pero tu pedido está tardando un poco más de lo esperado... ¡Estoy trabajando duro para tenerlo cuanto antes!
-						</div>
-						<div class="Suggestion_Text">
-							Cualquier cosa que necesites: comida, ropa, boletos de conciertos, flores, reservaciones... todo lo que se te ocurra, siempre y cuando sea legal.
-						</div>
-						<div class="Suggestion_Text">
-							Mmm... creo que no me queda claro. ¿Me puedes explicar un poco más, por favor?
-						</div>
-						<div class="Suggestion_Text">
-							¡Siempre! Estoy para ayudarte 24/7, todos los días del año.
-						</div>
-						<div class="Suggestion_Text">
-							Te enviaré un vínculo seguro para completar el pedido. El cargo se realizará sólo cuando tú lo autorices.
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="Panel_Right">
-				<div id="Container_Worker">
-					<div id="Worker_Awards">
-						<div class="Worker_Award">
-							TOP10
-						</div>
-					</div>
-					<div id="Worker_User">
-						<div id="Worker_User_Left">
-							<div class="Worker_User_Left_Element">
-								Fabian Luna
-							</div>
-							<div class="Worker_User_Left_Element">
-								02:40:23 en línea
-							</div>
-						</div>
-						<div id="Worker_User_Right">
-							<div class="Worker_User_Right_Element">
-								En linea
-							</div>
-							<div class="Worker_User_Right_Element">
-								<img class="Image_Switch Image_Toogleable" src="img/switch-on.png" togglesrc="img/switch-on2.png">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="Container_Highlights">
-					<div id="Highlights_Main">
-						<div id="Highlights_Main_Title">
-							<span class="icon-destacado Image_Pin"></span> Destacados
-						</div>
-						<div id="Highlights_Main_Number">
-							#00023
-						</div>
-					</div>
-					<div class="Highlights_Element">
-						<div class="Highlights_Element_Title">
-							¿Me puedes mandar una pizza?
-						</div>
-						<div class="Highlights_Element_Image">
-						</div>
-					</div>
-					<div class="Highlights_Element">
-						<div class="Highlights_Element_Title">
-							Peperoni con queso extra
-						</div>
-						<div class="Highlights_Element_Image">
-							<span class="icon-eliminar Image_Remove"></span> 
-						</div>
-					</div>
-					<div class="Highlights_Element">
-						<div class="Highlights_Element_Title">
-							Refresco de dieta
-						</div>
-						<div class="Highlights_Element_Image">
-						</div>
-					</div>
-					<div id="Highlights_Button">
-						Cotizar ticker #00023
-					</div>
-				</div>
-				<div id="Container_Checklist">
-					<div id="Checklist_Description">
-						Antes de cotizar recuerda preguntar
-					</div>
-					<div class="Checklist_Element">
-						<img class="Checkbox_Big Image_Toogleable" src="img/checkbox-outline.png" togglesrc="img/checkbox-outline2.png">
-						Tamaño
-					</div>
-					<div class="Checklist_Element">
-						<img class="Checkbox_Big Image_Toogleable" src="img/checkbox-outline.png" togglesrc="img/checkbox-outline2.png">
-						Ingredientes
-					</div>
-					<div class="Checklist_Element">
-						<img class="Checkbox_Big Image_Toogleable" src="img/checkbox-outline.png" togglesrc="img/checkbox-outline2.png">
-						Dirección
-					</div>
-					<div class="Checklist_Element">
-						<img class="Checkbox_Big Image_Toogleable" src="img/checkbox-outline.png" togglesrc="img/checkbox-outline2.png">
-						Métodos de pago
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="Modal_Background">
-		</div>
-		<div class="Dialog" id="Dialog_Order">
-			<div id="Dialog_Order_Header">
-				<div id="Dialog_Order_Header_Left">
-					#00023
-				</div>
-				<div id="Dialog_Order_Header_Right">
-					<span id="Dialog_Order_Close" class="icon-close Image_Close"></span>
-				</div>
-			</div>
-			<div id="Dialog_Order_Content">
-				<div id="Dialog_Order_Title">
-					Pizza de peperoni con queso
-				</div>
-				<div id="Dialog_Order_Buttons">
-					<div class="Ticket_Secondary_Button Ticket_Secondary_Button_Style1">
-						RESERVA
-					</div>
-					<div class="Ticket_Secondary_Button Ticket_Secondary_Button_Style2">
-						COMIDA
-					</div>
-					<div id="Dialog_Order_Button_Vertical" class="Ticket_Secondary_Button Ticket_Secondary_Button_Style4">
-						+VERTICAL
-					</div>
-				</div>
-				<div id="Dialog_Order_Vertical">
-					<div id="Dialog_Order_Vertical_Text" contenteditable="true">
-						Escribe la vertical
-					</div>
-					<div id="Dialog_Order_Vertical_Buttons">
-						<div id="Dialog_Order_Vertical_Button_Cancel">
-							Eliminar
-						</div>
-						<div id="Dialog_Order_Vertical_Button_Save">
-							Guardar
-						</div>
-					</div>
-				</div>
-				<div id="Dialog_Order_Properties">
-					<div class="Dialog_Order_Property">
-						<div class="Dialog_Order_Property_Title">
-							STATUS
-						</div>
-						<div class="Dialog_Order_Property_Text">
-							<div class="Dialog_Order_Property_Status_Ok">
-							</div> 
-							<select class="Dropdown_Invisible">
-					          <option value="abierto">Abierto</option>
-					          <option value="cerrado">Cerrado</option>
-					        </select>
-						</div>
-					</div>
-					<div class="Dialog_Order_Property">
-						<div class="Dialog_Order_Property_Title">
-							PRIORIDAD
-						</div>
-						<div class="Dialog_Order_Property_Text">
-							<select class="Dropdown_Invisible">
-					          <option value="urgente">Urgente</option>
-					          <option value="normal">Normal</option>
-					        </select>
-						</div>
-					</div>
-				</div>
-				<div id="Dialog_Order_Movements">
-					<div class="Dialog_Order_Movement">
-						<div class="Dialog_Order_Movement_Left">
-							<div class="Dialog_Order_Movement_Tag" contenteditable="true">
-								CREACIÓN
-							</div>
-							<div class="Dialog_Order_Movement_Value" contenteditable="true">
-								Hace 43 minutos
-							</div>
-						</div>
-						<div class="Dialog_Order_Movement_Right">
-							<div class="Dialog_Order_Movement_Tag" contenteditable="true">
-								Compra
-							</div>
-							<div class="Dialog_Order_Movement_Strong" contenteditable="true">
-								$1,000
-							</div>
-							<span class="icon-eliminar Image_Remove Dialog_Order_Movement_Remove"></span>
-						</div>
-					</div>
-					<div class="Dialog_Order_Movement">
-						<div class="Dialog_Order_Movement_Left">
-							<div class="Dialog_Order_Movement_Tag" contenteditable="true">
-								ÚLTIMA ACTUALIZACIÓN
-							</div>
-							<div class="Dialog_Order_Movement_Value" contenteditable="true">
-								Justo Ahora
-							</div>
-						</div>
-						<div class="Dialog_Order_Movement_Right">
-							<div class="Dialog_Order_Movement_Tag" contenteditable="true">
-								VENTA
-							</div>
-							<div class="Dialog_Order_Movement_Strong" contenteditable="true">
-								$2,000
-							</div>
-							<span class="icon-eliminar Image_Remove Dialog_Order_Movement_Remove"></span>
-						</div>
-					</div>
-					<div class="Dialog_Order_Movement">
-						<div class="Dialog_Order_Movement_Left">
-							<div class="Dialog_Order_Movement_Tag" contenteditable="true">
-								VENCIMIENTO
-							</div>
-							<div class="Dialog_Order_Movement_Value" contenteditable="true">
-								15:45 pm
-							</div>
-						</div>
-						<div class="Dialog_Order_Movement_Right">
-							<div class="Dialog_Order_Movement_Tag" contenteditable="true">
-								COSTO LOGÍSTICA
-							</div>
-							<div class="Dialog_Order_Movement_Strong" contenteditable="true">
-								$200
-							</div>
-							<span class="icon-eliminar Image_Remove Dialog_Order_Movement_Remove"></span>
-						</div>
-					</div>
-				</div>
-				<div class="Dialog_Button" id="Dialog_Order_Button_Movement">
-					Agregar movimiento
-				</div>
-				<div class="Dialog_Button" id="Dialog_Order_Button_Quote">
-					Cotizar ticket #00023
-				</div>
-				<div class="Dialog_Button" id="Dialog_Order_Button_Program">
-					<span class="icon-programar Image_Programar_Small"></span> 
-					Programar mensaje
-				</div>
-			</div>
-			<div id="Dialog_Order_Footer">
-				<div id="Dialog_Order_Footer_Left">
-					<img id="Dialog_Order_Avatar" src="img/avatar01.png">
-					<div id="Dialog_Order_Profile">
-						<div id="Dialog_Order_Profile_Role">
-							OPERADOR
-						</div>
-						<div id="Dialog_Order_Profile_Name">
-							Fabian Luna
-						</div>
-					</div>
-				</div>
-				<div id="Dialog_Order_Footer_Right">
-					<span id="Dialog_Order_Transfer_Dropdown" class="icon-dropdown Image_Dropdown"></span>
-				</div>
-			</div>
-			<div id="Dialog_Order_Transfer">
-				<div class="Dialog_Order_Transfer_Label">
-					TRANSFERIR A OTRO OPERADOR
-				</div>
-				<div id="Dialog_Order_Transfer_Text" contenteditable="true">
-					Nombre del Operador
-				</div>
-				<div id="Dialog_Order_Transfer_Buttons">
-					<div id="Dialog_Order_Transfer_Button_Cancel">
-						Cancelar
-					</div>
-					<div id="Dialog_Order_Transfer_Button_Save">
-						Transferir Ticket
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="Dialog" id="Dialog_Schedule">
-			<div id="Chat_Calendar"></div>
-			<div class="Dialog_Schedule_Button" id="Dialog_Order_Button_Schedule">
-				<span class="icon-programar Image_Programar_Small"></span> 
-				Programar mensaje
-			</div>
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    -->
+    <link href="//cdn.muicss.com/mui-0.2.1/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/map.css" />
+    <script src="//cdn.muicss.com/mui-0.2.1/js/mui.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/map.js"></script>
+  </head>
+  <body>
+    <div id="sidedrawer" class="mui--no-user-select">
+    <div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title">
+      Bot Manager
+    </div>
+    <div class="mui-divider"></div>
+      <ul>
+        <li>
+          <strong><img width="30px" src="img/avatar01.png"> Linkedin</strong>
+          <ul>
+            <li><a id="lk_sa_st" class="lk" href="#">Status</a></li>
+            <li><a id="lk_sa_se" class="lk" href="#">Start</a></li>
+            <li><a id="lk_sa_in" class="lk" href="#">Stop</a></li>
+            <li><a id="lk_sa_do" class="lk" href="#">Download</a></li>
+          </ul>
+        </li>
+        <li>
+          <strong><img width="30px" src="img/avatar03.png"> Facebook</strong>
+          <ul>
+            <li><a id="lk_wa_st" class="lk" href="#">Status</a></li>
+            <li><a id="lk_wa_se" class="lk" href="#">Start</a></li>
+            <li><a id="lk_wa_in" class="lk" href="#">Stop</a></li>
+            <li><a id="lk_wa_do" class="lk" href="#">Download</a></li>
+          </ul>
+        </li>
+        <li>
+          <strong><img width="30px" src="img/avatar04.png"> Twitter</strong>
+          <ul>
+            <li><a id="lk_wm_st" class="lk" href="#">Status</a></li>
+            <li><a id="lk_wm_se" class="lk" href="#">Start</a></li>
+            <li><a id="lk_wm_in" class="lk" href="#">Stop</a></li>
+            <li><a id="lk_wm_do" class="lk" href="#">Download</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <header id="header">
+      <div class="mui-appbar mui--appbar-line-height">
+        <div class="mui-container-fluid">
+          <a class="sidedrawer-toggle mui--visible-xs-inline-block js-show-sidedrawer">
+            ☰ Bot Manager
+          </a>
+          <a class="sidedrawer-toggle mui--hidden-xs js-hide-sidedrawer">
+            ☰ Bot Manager
+          </a>
+          <span class="mui--text-title mui--visible-xs-inline-block">
+            Bot Manager
+          </span>
+        </div>
+      </div>
+    </header>
+    <div id="content-wrapper">
+      <div class="mui--appbar-height">
+      </div>
+      <div class="mui-container-fluid">
+        <ul class="mui-tabs__bar mui-tabs__bar--justified">
+          <li class="mui--is-active">
+            <a data-mui-toggle="tab" data-mui-controls="pane-justified-sa">
+              Linkedin
+            </a>
+          </li>
+          <li>
+            <a data-mui-toggle="tab" data-mui-controls="pane-justified-wa">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a data-mui-toggle="tab" data-mui-controls="pane-justified-wm">
+              Twitter
+            </a>
+          </li>
+        </ul>
+        <br>
+        <div class="mui-tabs__pane mui--is-active" id="pane-justified-sa">
+          <div class="mui-container">
+            <div class="mui-panel">
+              <h1>
+                <img width="80px" src="img/avatar01.png"> Linka - Linkedin Bot Manager at WVU
+              </h1>
+              <button id="bt_sa_st" class="bt mui-btn mui-btn--primary mui-btn--raised">
+                Status
+              </button>
+              <button id="bt_sa_se" class="bt opt-sa mui-btn mui-btn--primary mui-btn--raised">
+                Start
+              </button>
+              <button id="bt_sa_in" class="bt opt-sa mui-btn mui-btn--primary mui-btn--raised">
+                Stop
+              </button>
+              <button id="bt_sa_do" class="bt opt-sa mui-btn mui-btn--primary mui-btn--raised">
+                Download
+              </button>
+            </div>
+            <div class="mui-panel">
+              <div id="dv_sa_st" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Status:
+                </div>
+                <div id="rs_sa_st" class="res">
+                </div>
+              </div>
+              <div id="dv_sa_se" class="dv div_not_selected">
+                <div class="mui--text-display1">
+                  Start:
+                </div>
+                <form id="fm_sa">
+                  <div class="mui-select">
+                      <select name="c">
+                        <option value="ln-marlee">Mary Lee</option>
+                      </select>
+                    </div>
+                  <input type="button" value="Submit" id="bf_sa" class="sb mui-btn mui-btn--raised">
+                </form>
+                <div id="rs_sa_se" class="res">
+                </div>
+              </div>
+              <div id="dv_sa_in" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Stop:
+                </div>
+                <form id="fk_sa">
+                  <div class="mui--text-title">
+                    Select the process to stop.
+                  </div>
+                  <div class="mui-select">
+                    <select id="sl_sa" name="k">
+                      <option value="*">Stop All</option>
+                    </select>
+                  </div>
+                  <input type="button" value="Stop Selected" id="ks_sa" class="ks mui-btn mui-btn--raised">
+                  <input type="button" value="Stop All" id="ka_sa" class="ka mui-btn mui-btn--raised">
+                </form>
+                <div id="rs_sa_in" class="res">
+                </div>
+              </div>
+              <div id="dv_sa_do" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Download:
+                </div>
+                <div id="rs_sa_do" class="res">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mui-tabs__pane" id="pane-justified-wa">    
+          <div class="mui-container">
+            <div class="mui-panel">
+              <h1>
+                <img width="80px" src="img/avatar03.png"> Facel - Facebook Bot Manager at WVU
+              </h1>
+              <button id="bt_wa_st" class="bt mui-btn mui-btn--primary mui-btn--raised">
+                Status
+              </button>
+              <button id="bt_wa_se" class="bt mui-btn mui-btn--primary mui-btn--raised">
+                Start
+              </button>
+              <button id="bt_wa_in" class="bt mui-btn mui-btn--primary mui-btn--raised">
+                Stop
+              </button>
+              <button id="bt_wa_do" class="bt opt-sa mui-btn mui-btn--primary mui-btn--raised">
+                Download
+              </button>
+            </div>
+            <div class="mui-panel">
+              <div id="dv_wa_st" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Status:
+                </div>
+                <div id="rs_wa_st" class="res">
+                </div>
+              </div>
+              <div id="dv_wa_se" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Start:
+                </div>
+                <form id="fm_wa">
+                  <div class="mui-select">
+                      <select name="c">
+                        <option value="fb-davjoh">David Johnson</option>
+                      </select>
+                    </div>
+                  <input type="button" value="Submit" id="bf_wa" class="sb mui-btn mui-btn--raised">
+                </form>
+                <div id="rs_wa_se" class="res">
+                </div>
+              </div>
+              <div id="dv_wa_in" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Stop:
+                </div>
+                <form id="fk_wa">
+                  <div class="mui--text-title">
+                    Select the process to stop.
+                  </div>
+                  <div class="mui-select">
+                    <select id="sl_wa" name="k">
+                      <option value="*">Stop All</option>
+                    </select>
+                  </div>
+                  <input type="button" value="Stop Selected" id="ks_wa" class="ks mui-btn mui-btn--raised">
+                  <input type="button" value="Stop All" id="ka_wa" class="ka mui-btn mui-btn--raised">
+                </form>
+                <div id="rs_wa_in" class="res">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mui-tabs__pane" id="pane-justified-wm">
+          <div class="mui-container">
+            <div class="mui-panel">
+              <h1>
+                <img width="80px" src="img/avatar04.png"> Twina - Twitter Bot Manager at WVU
+              </h1>
+              <button id="bt_wm_st" class="bt mui-btn mui-btn--primary mui-btn--raised">
+                Status
+              </button>
+              <button id="bt_wm_se" class="bt mui-btn mui-btn--primary mui-btn--raised">
+                Start
+              </button>
+              <button id="bt_wm_in" class="bt mui-btn mui-btn--primary mui-btn--raised">
+                Stop
+              </button>
+              <button id="bt_wm_do" class="bt mui-btn mui-btn--primary mui-btn--raised">
+                Download
+              </button>
+            </div>
+            <div class="mui-panel">
+              <div id="dv_wm_st" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Status:
+                </div>
+                <div id="rs_wm_st" class="res">
+                </div>
+              </div>
+              <div id="dv_wm_se" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Start:
+                </div>
+                <form id="fm_wm">
+                  <div class="mui-select">
+                      <select name="c">
+                        <option value="tw-friend">Friendly Bot</option>
+                      </select>
+                    </div>
+                  <input type="button" value="Submit" id="bf_wm" class="sb mui-btn mui-btn--raised">
+                </form>
+                <div id="rs_wm_se" class="res">
+                </div>
+              </div>
+              <div id="dv_wm_in" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Stop:
+                </div>
+                <form id="fk_wm">
+                  <div class="mui--text-title">
+                    Select the process to stop.
+                  </div>
+                  <div class="mui-select">
+                    <select id="sl_wm" name="k">
+                      <option value="*">Stop All</option>
+                    </select>
+                  </div>
+                  <input type="button" value="Stop Selected" id="ks_wm" class="ks mui-btn mui-btn--raised">
+                  <input type="button" value="Stop All" id="ka_wm" class="ka mui-btn mui-btn--raised">
+                </form>
+                <div id="rs_wm_in" class="res">
+                </div>
+              </div>
+              <div id="dv_wm_do" class="dv div_selected">
+                <div class="mui--text-display1">
+                  Download:
+                </div>
+                <div id="rs_wm_do" class="res">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+      <div class="mui-container-fluid">
+        <br>
+        Bot Manager V0.1
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,53 @@
+{
+	"description": "Lets start",
+	"questions": {
+		"1": {
+			"question": "Hi, Do you like music?",
+			"answer": {
+				"1_1": ["yes", "of course"],
+				"1_2": ["no", "not"]
+			}
+		},
+		"2": {
+			"question": "What kind of music?",
+			"answer": {
+				"2_1": ["electronic"]
+			}
+		},
+		"3": {
+			"question": "What else do you like?",
+			"answer": {
+				"3_1": ["videogames"]
+			}
+		},
+		"4": {
+			"question": "Thanks for participating.",
+			"answer": null
+		}
+	},
+	"flow": {
+		"1": {
+			"1_1": {
+				"2": {
+					"2_1": {
+						"4": null
+					},
+					"2_e": {
+						"4": null
+					}
+				}
+			},
+			"1_2": {
+				"3": {
+					"3_1": {
+						"4": null
+					},
+					"3_e": {
+						"4": null
+					}
+				}
+			},
+			"1_e": "retry"
+		}
+	}
+}
