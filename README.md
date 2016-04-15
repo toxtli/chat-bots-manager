@@ -4,8 +4,10 @@ This platform administrates chat bots of different platforms like facebok, twitt
 Installation:
 
 * Install PhantomJS
-* Install the following Python libraries:
-** tweepy
+* Install Selenium Python library.
+* Install tweepy Python library.
+* Run python chatbot.py in command line.
+> python chatbot.py
 
 Execute server from command line:
 ![alt tag](http://ctoxtli.gweb.io/imgs/img01.png)
