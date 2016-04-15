@@ -6,6 +6,7 @@ Installation:
 * Install PhantomJS
 * Install Selenium Python library.
 * Install tweepy Python library.
+* Edit tw*, fb* and ln* with your credentials.
 * Run python chatbot.py in command line.
 ```bash
 > python chatbot.py
