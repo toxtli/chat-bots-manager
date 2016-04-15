@@ -7,7 +7,9 @@ Installation:
 * Install Selenium Python library.
 * Install tweepy Python library.
 * Run python chatbot.py in command line.
+```bash
 > python chatbot.py
+```
 
 Execute server from command line:
 ![alt tag](http://ctoxtli.gweb.io/imgs/img01.png)
