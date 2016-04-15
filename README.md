@@ -1,5 +1,11 @@
 # chat-bots-manager
-This platform administrates chat bots of different platforms like facebok, twitter and linkedin
+This platform administrates chat bots of different platforms like facebok, twitter and linkedin.
+
+Installation:
+
+* Install PhantomJS
+* Install the following Python libraries:
+** tweepy
 
 Execute server from command line:
 ![alt tag](http://ctoxtli.gweb.io/imgs/img01.png)
