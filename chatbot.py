@@ -3,7 +3,7 @@ import web
 import sys
 import json
 import time
-import fbchat
+# import fbchat
 import getopt
 import tweepy
 import urllib
@@ -561,7 +561,7 @@ class FacebookChat(SeleniumHelper):
 		config.read(filename)
 		self.LOGIN_USER_VALUE = config.get('credentials', 'login_user_value')
 		self.LOGIN_PASS_VALUE = config.get('credentials', 'login_pass_value')
-		self.client = fbchat.Client(self.LOGIN_USER_VALUE, self.LOGIN_PASS_VALUE)
+		# self.client = fbchat.Client(self.LOGIN_USER_VALUE, self.LOGIN_PASS_VALUE)
 		self.driver = webdriver.Firefox()
 		# self.driver = webdriver.PhantomJS()
 		# self.driver = webdriver.Chrome('./chromedriver')
