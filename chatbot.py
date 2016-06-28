@@ -599,9 +599,13 @@ class TwitterChat:
 	def send_message(self, body, to):
 		print "Sending message"
 		message = '%s %s' % (body, to)
-		self.api.update_status(status=message)
-		print "Message sent"
-		return 'OK'
+		try:
+			self.api.update_status(status=message)
+			print "Message sent"
+			return 'OK'
+		except:
+			print "Message not sent"
+			return 'NO'
 
 	def read_messages(self, to):
 		exit = []
