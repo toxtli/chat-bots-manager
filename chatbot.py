@@ -605,7 +605,8 @@ class TwitterChat:
 			return 'OK'
 		except:
 			print "Message not sent"
-			return 'NO'
+			print sys.exc_info()
+			return sys.exc_info()
 
 	def read_messages(self, to):
 		exit = []
