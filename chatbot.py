@@ -586,7 +586,7 @@ class TwitterChat:
 		if section == 'msg':
 			if action == 'send':
 				if 'body' in params and 'to' in params:
-					exit['data'] = self.send_message(params['body'], params['to'])
+					exit['status'] = self.send_message(params['body'], params['to'])
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
@@ -606,7 +606,7 @@ class TwitterChat:
 		except:
 			print "Message not sent"
 			print sys.exc_info()
-			return sys.exc_info()[1]
+			return 'NO'
 
 	def read_messages(self, to):
 		exit = []
