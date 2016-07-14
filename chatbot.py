@@ -436,11 +436,15 @@ class FacebookChat(SeleniumHelper):
 		if section == 'msg':
 			if action == 'send':
 				if 'body' in params and 'to' in params:
+					if not 'http' in params['to']:
+						params['to'] = 'http://facebook.com/' + params['to']
 					exit['data'] = self.send_message(params['body'], params['to'])
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
 				if 'to' in params:
+					if not 'http' in params['to']:
+						params['to'] = 'http://facebook.com/' + params['to']
 					exit['data'] = self.read_messages(params['to'])
 				else:
 					exit['data'] = self.read_all_messages()
@@ -453,11 +457,15 @@ class FacebookChat(SeleniumHelper):
 		elif section == 'post':
 			if action == 'send':
 				if 'body' in params and 'to' in params:
+					if not 'http' in params['to']:
+						params['to'] = 'http://facebook.com/' + params['to']
 					exit['data'] = self.post_message(params['to'], params['body'])
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
 				if 'to' in params:
+					if not 'http' in params['to']:
+						params['to'] = 'http://facebook.com/' + params['to']
 					exit['data'] = self.post_read_messages(params['to'])
 				else:
 					exit['data'] = json.dumps(params)
