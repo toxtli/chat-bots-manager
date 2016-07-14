@@ -464,6 +464,9 @@ class FacebookChat(SeleniumHelper):
 					exit['data'] = self.post_read_messages(params['to'])
 				else:
 					exit['data'] = json.dumps(params)
+		elif section == 'screen':
+			if action == 'shot':
+				self.saveScreenshot('screenshot4.png')
 		return exit
 
 	def login(self):
