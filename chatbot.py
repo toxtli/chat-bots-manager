@@ -439,15 +439,11 @@ class FacebookChat(SeleniumHelper):
 		if section == 'msg':
 			if action == 'send':
 				if 'body' in params and 'to' in params:
-					if not 'http' in params['to']:
-						params['to'] = 'http://facebook.com/' + params['to']
 					exit['data'] = self.send_message(params['body'], params['to'])
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
 				if 'to' in params:
-					if not 'http' in params['to']:
-						params['to'] = 'http://facebook.com/' + params['to']
 					exit['data'] = self.read_messages(params['to'])
 				else:
 					exit['data'] = self.read_all_messages()
@@ -460,15 +456,11 @@ class FacebookChat(SeleniumHelper):
 		elif section == 'post':
 			if action == 'send':
 				if 'body' in params and 'to' in params:
-					if not 'http' in params['to']:
-						params['to'] = 'http://facebook.com/' + params['to']
 					exit['data'] = self.post_message(params['to'], params['body'])
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
 				if 'to' in params:
-					if not 'http' in params['to']:
-						params['to'] = 'http://facebook.com/' + params['to']
 					exit['data'] = self.post_read_messages(params['to'])
 				else:
 					exit['data'] = json.dumps(params)
@@ -519,18 +511,18 @@ class FacebookChat(SeleniumHelper):
 
 
 	def send_message(self, body, to):
-		username = to.split('/').pop()
-		url = self.MESSAGE_URL + username
+		url = self.MESSAGE_URL + to
 		self.loadPage(url)
+		self.saveScreenshot('screenshot2.png');
 		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
 		textarea.send_keys(body)
 		textarea.send_keys(Keys.RETURN)
+		self.saveScreenshot('screenshot3.png');
 		return 'OK'
 
 	def read_messages(self, to):
 		exit = []
-		username = to.split('/').pop()
-		url = self.MESSAGE_URL + username
+		url = self.MESSAGE_URL + to
 		self.loadPage(url)
 		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
 		messages = self.getElements(self.MESSAGES_LIST)
