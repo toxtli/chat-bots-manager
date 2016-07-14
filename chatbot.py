@@ -520,10 +520,8 @@ class FacebookChat(SeleniumHelper):
 		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
 		textarea.send_keys(body)
 		textarea.send_keys('\n\r')
-		textarea.send_keys('\r\n')
-		textarea.send_keys(Keys.RETURN)
-		textarea.send_keys(Keys.RETURN)
-		textarea.send_keys(Keys.RETURN)
+		# textarea.send_keys('\r\n')
+		# textarea.send_keys(Keys.RETURN)
 		self.saveScreenshot('screenshot3.png');
 		return 'OK'
 
