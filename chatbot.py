@@ -151,6 +151,9 @@ class SeleniumHelper:
 		actions.move_to_element(element)
 		actions.perform()
 
+	def saveScreenshot(self, path="screenshot.png"):
+		self.driver.save_screenshot(path) 
+
 class LinkedinChat(SeleniumHelper):
 	LOGIN_USER_VALUE = 'maryleeits@gmail.com'
 	LOGIN_PASS_VALUE = 'edupassword'
@@ -485,6 +488,7 @@ class FacebookChat(SeleniumHelper):
 	def start(self):
 		print 'Logging in'
 		self.login()
+		self.saveScreenshot()
 
 	def getInfo(self, url):
 		command = 'linkedin-scraper ' + url
