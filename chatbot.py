@@ -522,7 +522,7 @@ class FacebookChat(SeleniumHelper):
 		textarea.send_keys('\n\r')
 		# textarea.send_keys('\r\n')
 		# textarea.send_keys(Keys.RETURN)
-		self.saveScreenshot('screenshot3.png');
+		# self.saveScreenshot('screenshot3.png');
 		return 'OK'
 
 	def read_messages(self, to):
