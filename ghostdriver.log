@@ -1,42 +1,28 @@
-[INFO  - 2016-07-19T04:38:01.501Z] GhostDriver - Main - running on port 63653
-[INFO  - 2016-07-19T04:38:01.789Z] Session [937f3b80-4d6a-11e6-825c-150694d7e835] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2016-07-19T04:38:01.790Z] Session [937f3b80-4d6a-11e6-825c-150694d7e835] - page.customHeaders:  - {}
-[INFO  - 2016-07-19T04:38:01.790Z] Session [937f3b80-4d6a-11e6-825c-150694d7e835] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2016-07-19T04:38:01.790Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 937f3b80-4d6a-11e6-825c-150694d7e835
-[ERROR - 2016-07-19T04:38:07.157Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1468903087115
+[INFO  - 2016-07-19T14:25:25.130Z] GhostDriver - Main - running on port 53354
+[INFO  - 2016-07-19T14:25:25.488Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2016-07-19T14:25:25.488Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.customHeaders:  - {}
+[INFO  - 2016-07-19T14:25:25.488Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2016-07-19T14:25:25.488Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: a2604f70-4dbc-11e6-a2db-1dd5e773c1f3
+[ERROR - 2016-07-19T14:25:27.822Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1468938327787
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-07-19T04:38:08.164Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1468903088125
+[ERROR - 2016-07-19T14:25:28.850Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1468938328825
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-07-19T04:38:09.100Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1468903089062
+[ERROR - 2016-07-19T14:25:30.308Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.onError - msg: Request returned 0
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-07-19T04:38:19.249Z] Session [937f3b80-4d6a-11e6-825c-150694d7e835] - page.onError - msg: sampling fraction not set
+[ERROR - 2016-07-19T14:25:30.308Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.onError - stack:
+  logError (https://static.licdn.com/scds/concat/common/js?h=7ndrn0f9fw0hum7uoqcjcnzne-95d8d303rtd0n9wj4dcjbnh2c-7vr4nuab43rzvy2pgq7yvvxjk-9qa4rfxekcw3lt2c06h7p0kmf:5)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-07-19T04:38:19.251Z] Session [937f3b80-4d6a-11e6-825c-150694d7e835] - page.onError - stack:
+[INFO  - 2016-07-19T14:30:25.644Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2016-07-19T14:30:33.189Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.onError - msg: sampling fraction not set
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-07-19T14:30:33.189Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.onError - stack:
   _logError (https://static.licdn.com/scds/concat/common/js?h=7vr4nuab43rzvy2pgq7yvvxjk-9qa4rfxekcw3lt2c06h7p0kmf:1)
 
   phantomjs://platform/console++.js:263 in error
-[INFO  - 2016-07-19T06:01:31.804Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T11:28:18.333Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T11:33:18.346Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T11:38:18.356Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T11:43:18.365Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T11:48:18.376Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T11:53:18.388Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T11:58:18.398Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:03:18.409Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:08:18.421Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:13:18.430Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:18:18.441Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:23:18.452Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:28:18.462Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:45:38.571Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:50:38.580Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T12:55:38.591Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T13:11:17.202Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T13:16:17.209Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T13:21:17.222Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T13:26:17.236Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+ns - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2016-07-19T14:30:25.012Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW

@@ -328,8 +328,10 @@ class LinkedinChat(SeleniumHelper):
 			# button = self.getElement('.message-submit')
 			# self.click(button)
 			self.saveScreenshot('LNS04.png')
+			print 'Message sent to: ' + to
 			return body + ' ' + to
 		else:
+			print 'Message was not sent to: ' + to
 			self.saveScreenshot('LNS02.png')
 			return 'User not found'
 
