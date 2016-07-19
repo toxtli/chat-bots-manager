@@ -311,8 +311,11 @@ class LinkedinChat(SeleniumHelper):
 		return exit
 
 	def send_message(self, body, to):
+		print 'Opening profile ' + to
 		self.saveScreenshot('LNS03.png')
+		print 'Loading'
 		self.loadPage(to)
+		print 'Loaded'
 		self.saveScreenshot('LNS04.png')
 		html = self.driver.page_source
 		arr1 = html.split('connId=')
