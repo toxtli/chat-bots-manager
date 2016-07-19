@@ -172,6 +172,7 @@ class LinkedinChat(SeleniumHelper):
 	# LOGIN_PASS_PATH = '#login-password'
 	LOGIN_SUBMIT_PATH = '#loginbutton > input[type="submit"]'
 	BUTTON_SEND_MESSAGE = '#tc-actions-send-message'
+	TEXTBOX_MESSAGE = '#compose-message'
 	TEXTBOX_SUBJECT = '#subject-msgForm'
 	TEXTBOX_GO_SUBJECT = '.compose-subject'
 	TEXTBOX_BODY = '#body-msgForm'
@@ -210,8 +211,8 @@ class LinkedinChat(SeleniumHelper):
 		exit = {'status': 'OK', 'data': 'test'}
 		if section == 'msg':
 			if action == 'send':
-				if 'subject' in params and 'body' in params and 'to' in params:
-					exit['data'] = self.send_message(params['subject'], params['body'], params['to'])
+				if 'body' in params and 'to' in params:
+					exit['data'] = self.send_message(params['body'], params['to'])
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
@@ -306,37 +307,31 @@ class LinkedinChat(SeleniumHelper):
 			exit.append({'id': idValue, 'url': url, 'title': title, 'text': text})
 		return exit
 
-	def send_message(self, subject, body, to):
+	def send_message(self, body, to):
+		self.saveScreenshot('LNS00.png')
 		self.loadPage(to)
-		time.sleep(1)
-		recruiter = self.getElement(self.BUTTON_RECRUITER_ONE)
-		if recruiter:
-			self.click(recruiter)
-			time.sleep(1)
-		outside = self.getElement(self.BUTTON_GO_INMAIL)
-		other = self.getElement(self.BUTTON_INMAIL)
-		if outside or other:
-			if outside:
-				self.click(outside)
-			if other:
-				self.click(other)
-			time.sleep(1)
-			self.waitAndWrite(self.TEXTBOX_GO_SUBJECT, subject)
-			time.sleep(1)
-			self.selectAndWrite(self.TEXTBOX_GO_BODY, body)
-			time.sleep(1)
-			button = self.getElement(self.BUTTON_GO_SEND_INMAIL)
-			self.click(button)
+		self.saveScreenshot('LNS01.png')
+		html = self.driver.page_source
+		arr1 = html.split('connId=')
+		if len(arr1) > 1:
+			arr2 = arr1[1].split('&')
+			connId = arr2[0]
+			msgUrl = self.CHAT_URL + connId
+			self.loadPage(msgUrl)
+			self.saveScreenshot('LNS03.png')
+			textarea = self.waitShowElement(self.TEXTBOX_MESSAGE)
+			# checkbox = self.getElement('#enter-to-send-checkbox')
+			# self.click(checkbox)
+			textarea.send_keys(body)
+			textarea.send_keys('\n\r')
+			textarea.send_keys('\n\r')
+			# button = self.getElement('.message-submit')
+			# self.click(button)
+			self.saveScreenshot('LNS04.png')
+			return body + ' ' + to
 		else:
-			button = self.waitShowElement(self.BUTTON_SEND_MESSAGE)
-			self.click(button)
-			self.waitAndWrite(self.TEXTBOX_SUBJECT, subject)
-			time.sleep(1)
-			self.selectAndWrite(self.TEXTBOX_BODY, body)
-			time.sleep(1)
-			button = self.getElement(self.BUTTON_SEND_INMAIL)
-			self.click(button)
-		return subject + ' ' + body + ' ' + to
+			self.saveScreenshot('LNS02.png')
+			return 'User not found'
 
 	def read_all_messages(self):
 		self.loadPage(self.READ_URL)
