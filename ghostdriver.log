@@ -1,28 +1,30 @@
-[INFO  - 2016-07-19T14:25:25.130Z] GhostDriver - Main - running on port 53354
-[INFO  - 2016-07-19T14:25:25.488Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2016-07-19T14:25:25.488Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.customHeaders:  - {}
-[INFO  - 2016-07-19T14:25:25.488Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2016-07-19T14:25:25.488Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: a2604f70-4dbc-11e6-a2db-1dd5e773c1f3
-[ERROR - 2016-07-19T14:25:27.822Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1468938327787
+[INFO  - 2016-07-19T17:33:51.992Z] GhostDriver - Main - running on port 56692
+[INFO  - 2016-07-19T17:33:52.125Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2016-07-19T17:33:52.125Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - page.customHeaders:  - {}
+[INFO  - 2016-07-19T17:33:52.126Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2016-07-19T17:33:52.126Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: f5a79700-4dd6-11e6-90d4-3987b434a63c
+[ERROR - 2016-07-19T17:33:55.981Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - page.onError - msg: Error: The value for csrfToken in the pageContext was null or undefined
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-07-19T14:25:28.850Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1468938328825
+[ERROR - 2016-07-19T17:33:55.982Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - page.onError - stack:
+  assert (https://static.licdn.com/sc/h/eekxmw2mg4t0hh3rax0naa6bb:56)
+  assertDefined (https://static.licdn.com/sc/h/eekxmw2mg4t0hh3rax0naa6bb:57)
+  getPageContextValue (https://static.licdn.com/sc/h/eekxmw2mg4t0hh3rax0naa6bb:70)
+  addCsrfTokenToUrl (https://static.licdn.com/sc/h/eekxmw2mg4t0hh3rax0naa6bb:85)
+  (anonymous function) (https://www.linkedin.com/:11)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-07-19T14:25:30.308Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.onError - msg: Request returned 0
+[ERROR - 2016-07-19T17:34:32.862Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - page.onError - msg: Request returned 0
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-07-19T14:25:30.308Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.onError - stack:
-  logError (https://static.licdn.com/scds/concat/common/js?h=7ndrn0f9fw0hum7uoqcjcnzne-95d8d303rtd0n9wj4dcjbnh2c-7vr4nuab43rzvy2pgq7yvvxjk-9qa4rfxekcw3lt2c06h7p0kmf:5)
+[ERROR - 2016-07-19T17:34:32.864Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - page.onError - stack:
+  (anonymous function) (https://static.licdn.com/scds/concat/common/js?h=3nuvxgwg15rbghxm1gpzfbya2-1nm61x5u7981e88m10hpaekkm-mv3v66b8q0h1hvgvd3yfjv5f-14k913qahq3mh0ac0lh0twk9v-28vfzntn604yf2k0jo32aleiv-64jfglk4psru95ie0m5pte7p3&fc=2:5)
 
   phantomjs://platform/console++.js:263 in error
-[INFO  - 2016-07-19T14:30:25.644Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[ERROR - 2016-07-19T14:30:33.189Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.onError - msg: sampling fraction not set
+[ERROR - 2016-07-19T17:34:38.113Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - page.onError - msg: sampling fraction not set
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-07-19T14:30:33.189Z] Session [a2604f70-4dbc-11e6-a2db-1dd5e773c1f3] - page.onError - stack:
+[ERROR - 2016-07-19T17:34:38.113Z] Session [f5a79700-4dd6-11e6-90d4-3987b434a63c] - page.onError - stack:
   _logError (https://static.licdn.com/scds/concat/common/js?h=7vr4nuab43rzvy2pgq7yvvxjk-9qa4rfxekcw3lt2c06h7p0kmf:1)
 
   phantomjs://platform/console++.js:263 in error
-ns - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2016-07-19T14:30:25.012Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW

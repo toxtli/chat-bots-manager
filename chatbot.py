@@ -160,16 +160,16 @@ class LinkedinChat(SeleniumHelper):
 	TIMEOUT = 20
 	READ_URL = 'https://www.linkedin.com/cap/comm/inbox'
 	CHAT_URL = 'https://www.linkedin.com/messaging/compose?connId='
-	INITIAL_URL = 'https://www.linkedin.com/cap/dashboard/home'
-	# INITIAL_URL = 'https://www.linkedin.com'
+	# INITIAL_URL = 'https://www.linkedin.com/cap/dashboard/home'
+	INITIAL_URL = 'https://www.linkedin.com'
 	PROFILE_URL = 'https://www.linkedin.com/profile/view?id='
 	LINKEDIN_URL = 'https://www.linkedin.com'
 	POSTS_URL = 'https://www.linkedin.com/vsearch/ic?type=content&keywords='
 	SEARCH_BAR_PATH = '#main-search-box'
-	LOGIN_USER_PATH = '#session_key-login'
-	# LOGIN_USER_PATH = '#login-email'
-	LOGIN_PASS_PATH = '#session_password-login'
-	# LOGIN_PASS_PATH = '#login-password'
+	# LOGIN_USER_PATH = '#session_key-login'
+	LOGIN_USER_PATH = '#login-email'
+	# LOGIN_PASS_PATH = '#session_password-login'
+	LOGIN_PASS_PATH = '#login-password'
 	LOGIN_SUBMIT_PATH = '#loginbutton > input[type="submit"]'
 	BUTTON_SEND_MESSAGE = '#tc-actions-send-message'
 	TEXTBOX_MESSAGE = '#compose-message'
@@ -241,9 +241,12 @@ class LinkedinChat(SeleniumHelper):
 
 	def login(self):
 		self.loadPage(self.INITIAL_URL)
+		self.saveScreenshot('LNS00.png')
 		self.waitAndWrite(self.LOGIN_USER_PATH, self.LOGIN_USER_VALUE)
 		self.submitForm(self.selectAndWrite(self.LOGIN_PASS_PATH, self.LOGIN_PASS_VALUE))
+		self.saveScreenshot('LNS01.png')
 		bar = self.waitShowElement(self.SEARCH_BAR_PATH)
+		self.saveScreenshot('LNS02.png')
 
 	def close(self):
 		self.driver.quit()
@@ -308,9 +311,9 @@ class LinkedinChat(SeleniumHelper):
 		return exit
 
 	def send_message(self, body, to):
-		self.saveScreenshot('LNS00.png')
+		self.saveScreenshot('LNS03.png')
 		self.loadPage(to)
-		self.saveScreenshot('LNS01.png')
+		self.saveScreenshot('LNS04.png')
 		html = self.driver.page_source
 		arr1 = html.split('connId=')
 		if len(arr1) > 1:
@@ -318,7 +321,7 @@ class LinkedinChat(SeleniumHelper):
 			connId = arr2[0]
 			msgUrl = self.CHAT_URL + connId
 			self.loadPage(msgUrl)
-			self.saveScreenshot('LNS03.png')
+			self.saveScreenshot('LNS05.png')
 			textarea = self.waitShowElement(self.TEXTBOX_MESSAGE)
 			# checkbox = self.getElement('#enter-to-send-checkbox')
 			# self.click(checkbox)
@@ -327,12 +330,12 @@ class LinkedinChat(SeleniumHelper):
 			textarea.send_keys('\n\r')
 			# button = self.getElement('.message-submit')
 			# self.click(button)
-			self.saveScreenshot('LNS04.png')
+			self.saveScreenshot('LNS06.png')
 			print 'Message sent to: ' + to
 			return body + ' ' + to
 		else:
 			print 'Message was not sent to: ' + to
-			self.saveScreenshot('LNS02.png')
+			self.saveScreenshot('LNS07.png')
 			return 'User not found'
 
 	def read_all_messages(self):
