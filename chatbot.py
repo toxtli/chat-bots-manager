@@ -240,12 +240,18 @@ class LinkedinChat(SeleniumHelper):
 		return exit
 
 	def login(self):
+		print 'Opening login page'
 		self.loadPage(self.INITIAL_URL)
+		print 'Login page loaded'
 		self.saveScreenshot('LNS00.png')
+		print 'Writing credentials'
 		self.waitAndWrite(self.LOGIN_USER_PATH, self.LOGIN_USER_VALUE)
 		self.submitForm(self.selectAndWrite(self.LOGIN_PASS_PATH, self.LOGIN_PASS_VALUE))
+		print 'Form submited'
 		self.saveScreenshot('LNS01.png')
+		print 'Loading intro page'
 		bar = self.waitShowElement(self.SEARCH_BAR_PATH)
+		print 'Intro page loaded'
 		self.saveScreenshot('LNS02.png')
 
 	def close(self):
