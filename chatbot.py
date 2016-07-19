@@ -249,6 +249,8 @@ class LinkedinChat(SeleniumHelper):
 		self.submitForm(self.selectAndWrite(self.LOGIN_PASS_PATH, self.LOGIN_PASS_VALUE))
 		print 'Form submited'
 		self.saveScreenshot('LNS01.png')
+		time.sleep(2)
+		self.saveScreenshot('LNS02.png')
 		# print 'Loading intro page'
 		# bar = self.waitShowElement(self.SEARCH_BAR_PATH)
 		# print 'Intro page loaded'
