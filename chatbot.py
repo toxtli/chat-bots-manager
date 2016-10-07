@@ -237,6 +237,7 @@ class LinkedinChat(SeleniumHelper):
 					exit['data'] = self.post_read_messages(params['to'])
 				else:
 					exit['data'] = json.dumps(params)
+		exit['timestamp'] = str(time.time())
 		return exit
 
 	def login(self):
@@ -249,8 +250,8 @@ class LinkedinChat(SeleniumHelper):
 		self.submitForm(self.selectAndWrite(self.LOGIN_PASS_PATH, self.LOGIN_PASS_VALUE))
 		print 'Form submited'
 		self.saveScreenshot('LNS01.png')
-		time.sleep(2)
-		self.saveScreenshot('LNS02.png')
+		# time.sleep(2)
+		# self.saveScreenshot('LNS02.png')
 		# print 'Loading intro page'
 		# bar = self.waitShowElement(self.SEARCH_BAR_PATH)
 		# print 'Intro page loaded'
@@ -392,8 +393,8 @@ class LinkedinChat(SeleniumHelper):
 		config.read(filename)
 		self.LOGIN_USER_VALUE = config.get('credentials', 'login_user_value')
 		self.LOGIN_PASS_VALUE = config.get('credentials', 'login_pass_value')
-		# self.driver = webdriver.Firefox()
-		self.driver = webdriver.PhantomJS()
+		self.driver = webdriver.Firefox()
+		# self.driver = webdriver.PhantomJS()
 		# self.driver = webdriver.Chrome('./chromedriver')
 		self.driver.set_page_load_timeout(self.TIMEOUT)
 
@@ -402,6 +403,7 @@ class FacebookChat(SeleniumHelper):
 	LOGIN_PASS_VALUE = 'edupassword'
 	TIMEOUT = 7
 
+	DEBUG = False
 	INITIAL_URL = 'https://www.facebook.com/'
 	INITIAL_MOBILE_URL = 'https://m.facebook.com/'
 	SEARCH_LATEST_URL = 'https://www.facebook.com/search/latest/?q='
@@ -447,10 +449,14 @@ class FacebookChat(SeleniumHelper):
 
 	def bot_exec(self, section, action, params):
 		exit = {'status': 'OK', 'data': 'test'}
+		print "TEST00"
 		if section == 'msg':
 			if action == 'send':
 				if 'body' in params and 'to' in params:
-					exit['data'] = self.send_message(params['body'], params['to'])
+					image = None
+					if 'image' in params:
+						image = params['image']
+					exit['data'] = self.send_message(params['body'], params['to'], image)
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
@@ -478,6 +484,15 @@ class FacebookChat(SeleniumHelper):
 		elif section == 'screen':
 			if action == 'shot':
 				self.saveScreenshot('screenshot4.png')
+		elif section == 'get':
+			print "TEST01"
+			if action == 'fbid':
+				print "TEST02"
+				if 'id' in params:
+					print "TEST03"
+					newId = self.get_real_id(params['id'])
+					exit = {'status':'OK', 'data':{'id': newId}}
+		exit['timestamp'] = str(time.time())
 		return exit
 
 	def login(self):
@@ -524,15 +539,29 @@ class FacebookChat(SeleniumHelper):
 		return 'OK'
 
 
-	def send_message(self, body, to):
+	def get_real_id(self, id):
+		print "TEST04"
+		return self.get_user_id(self.INITIAL_URL + id)
+
+
+	def send_message(self, body, to, image):
 		url = self.MESSAGE_URL + to
 		self.loadPage(url)
-		self.saveScreenshot('screenshot2.png');
+		if self.DEBUG:
+			self.saveScreenshot('screenshot2.png');
 		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
 		textarea.send_keys(body)
-		textarea.send_keys('\n\r')
-		# textarea.send_keys('\r\n')
+		if image:
+			textarea.send_keys('\n\r')
+			time.sleep(1.5)
+			textarea.send_keys('\t\t\t\n\r')
+		else:
+			textarea.send_keys('\n\r')
+		# textarea.send_keys(Keys.TAB)
 		# textarea.send_keys(Keys.RETURN)
+		# button = self.getElement('.uiButtonConfirm > input')
+		# self.click(button)
+		# textarea.send_keys('\r\n')
 		# self.saveScreenshot('screenshot3.png');
 		return 'OK'
 
@@ -565,9 +594,10 @@ class FacebookChat(SeleniumHelper):
 		return exit
 
 	def get_user_id(self, url):
+		print "TEST05"
 		self.loadPage(url)
 		html = self.driver.page_source
-		idVal = html.split('memberId="')[1].split('";});')[0]
+		idVal = html.split('content="fb://profile/')[1].split('"')[0]
 		return idVal
 
 	def saveToFile(self, fileName):
@@ -582,8 +612,8 @@ class FacebookChat(SeleniumHelper):
 		self.LOGIN_USER_VALUE = config.get('credentials', 'login_user_value')
 		self.LOGIN_PASS_VALUE = config.get('credentials', 'login_pass_value')
 		# self.client = fbchat.Client(self.LOGIN_USER_VALUE, self.LOGIN_PASS_VALUE)
-		# self.driver = webdriver.Firefox()
-		self.driver = webdriver.PhantomJS()
+		self.driver = webdriver.Firefox()
+		# self.driver = webdriver.PhantomJS()
 		# self.driver = webdriver.Chrome('./chromedriver')
 		self.driver.set_page_load_timeout(self.TIMEOUT)
 
@@ -606,7 +636,10 @@ class TwitterChat:
 		if section == 'msg':
 			if action == 'send':
 				if 'body' in params and 'to' in params:
-					exit['status'] = self.send_message(params['body'], params['to'])
+					image = None
+					if 'image' in params:
+						image = params['image']
+					exit['status'] = self.send_message(params['body'], params['to'], image)
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
@@ -614,19 +647,23 @@ class TwitterChat:
 					exit['data'] = self.read_messages(params['to'])
 				else:
 					exit['data'] = self.read_all_messages()
+		exit['timestamp'] = str(time.time())
 		return exit
 
-	def send_message(self, body, to):
+	def send_message(self, body, to, image=None):
 		print "Sending message"
-		message = '%s %s' % (body, to)
+		message = to + " " + body
 		try:
-			self.api.update_status(status=message)
+			if image:
+				self.api.update_with_media(status=message,filename=image)
+			else:
+				self.api.update_status(status=message)
 			print "Message sent"
 			return 'OK'
-		except:
+		except Exception as e:
 			print "Message not sent"
 			print sys.exc_info()
-			return 'NO'
+			return str(e)
 
 	def read_messages(self, to):
 		exit = []
