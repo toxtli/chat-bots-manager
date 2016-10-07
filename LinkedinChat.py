@@ -5,8 +5,8 @@ from selenium import webdriver
 from SeleniumHelper import SeleniumHelper
 
 class LinkedinChat(SeleniumHelper):
-	LOGIN_USER_VALUE = 'maryleeits@gmail.com'
-	LOGIN_PASS_VALUE = 'edupassword'
+	LOGIN_USER_VALUE = ''
+	LOGIN_PASS_VALUE = ''
 	TIMEOUT = 20
 	READ_URL = 'https://www.linkedin.com/cap/comm/inbox'
 	CHAT_URL = 'https://www.linkedin.com/messaging/compose?connId='

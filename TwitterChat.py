@@ -4,11 +4,11 @@ import tweepy
 import ConfigParser
 
 class TwitterChat:
-	screen_name = "YourFriendlyBot"
-	consumer_key = "6y7sRr5UsRbcqCy3e0H17cPYb"
-	consumer_secret = "bJS0GKhX4O5BBWXp7L8bLG014lUd8VQQXZYqmVxjMxpFyEs5po"
-	access_token = "4777368076-wr4qyFoVVjS67Zxkn94Bsye94I8YlfiKCkWN3F1"
-	access_token_secret = "SS3gqbZ7ESA9dtSolZxc4DoixKh7AGCGU1ZFyIaumZoHZ"
+	screen_name = ""
+	consumer_key = ""
+	consumer_secret = "ç"
+	access_token = ""
+	access_token_secret = ""
 	configured = False
 	language = 'en'
 	max_tweets = 100

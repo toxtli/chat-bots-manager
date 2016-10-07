@@ -5,8 +5,8 @@ from selenium import webdriver
 from SeleniumHelper import SeleniumHelper
 
 class FacebookChat(SeleniumHelper):
-	LOGIN_USER_VALUE = 'davidjohnsonits@gmail.com'
-	LOGIN_PASS_VALUE = 'edupassword'
+	LOGIN_USER_VALUE = ''
+	LOGIN_PASS_VALUE = ''
 	TIMEOUT = 7
 
 	DEBUG = False

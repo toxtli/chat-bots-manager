@@ -5,8 +5,8 @@ from selenium import webdriver
 from SeleniumHelper import SeleniumHelper
 
 class TwitterWeb(SeleniumHelper):
-	LOGIN_USER_VALUE = 'maryleeits@gmail.com'
-	LOGIN_PASS_VALUE = 'edupassword'
+	LOGIN_USER_VALUE = ''
+	LOGIN_PASS_VALUE = ''
 	TIMEOUT = 7
 
 	DEBUG = False
