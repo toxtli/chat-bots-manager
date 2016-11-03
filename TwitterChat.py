@@ -1,3 +1,4 @@
+import sys
 import json
 import time
 import tweepy
@@ -6,7 +7,7 @@ import ConfigParser
 class TwitterChat:
 	screen_name = ""
 	consumer_key = ""
-	consumer_secret = "ç"
+	consumer_secret = ""
 	access_token = ""
 	access_token_secret = ""
 	configured = False

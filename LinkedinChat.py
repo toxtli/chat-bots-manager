@@ -47,6 +47,7 @@ class LinkedinChat(SeleniumHelper):
 	POST_COMMENTS = '.comments'
 	POST_ITEM_TEXT = '.comment-text'
 	POST_ITEM_FROM = '.commenter'
+	PROFILE_CONTENT = '#top-card'
 
 	ITEMS_CONTAINER = '#results'
 	ITEMS_RESULTS = '.result'
@@ -56,6 +57,7 @@ class LinkedinChat(SeleniumHelper):
 
 	data = {}
 	baseUrl = ''
+	debug = False
 
 	def bot_exec(self, section, action, params):
 		exit = {'status': 'OK', 'data': 'test'}
@@ -94,12 +96,14 @@ class LinkedinChat(SeleniumHelper):
 		print 'Opening login page'
 		self.loadPage(self.INITIAL_URL)
 		print 'Login page loaded'
-		self.saveScreenshot('LNS00.png')
+		if self.debug:
+			self.saveScreenshot('LNS00.png')
 		print 'Writing credentials'
 		self.waitAndWrite(self.LOGIN_USER_PATH, self.LOGIN_USER_VALUE)
 		self.submitForm(self.selectAndWrite(self.LOGIN_PASS_PATH, self.LOGIN_PASS_VALUE))
 		print 'Form submited'
-		self.saveScreenshot('LNS01.png')
+		if self.debug:
+			self.saveScreenshot('LNS01.png')
 		# time.sleep(2)
 		# self.saveScreenshot('LNS02.png')
 		# print 'Loading intro page'
@@ -172,40 +176,53 @@ class LinkedinChat(SeleniumHelper):
 	def send_message(self, body, to):
 		connId = ''
 		print 'Opening profile ' + to
-		self.saveScreenshot('LNS03.png')
+		if self.debug:
+			self.saveScreenshot('LNS03.png')
 		print 'Loading'
 		self.loadPage(to)
 		print 'Loaded'
-		self.saveScreenshot('LNS04.png')
+		topcard = self.waitShowElement(self.PROFILE_CONTENT)
+		print 'Displayed'
+		if self.debug:
+			self.saveScreenshot('LNS04.png')
 		html = self.driver.page_source
 		arr1 = html.split('connId=')
 		if len(arr1) > 1:
 			arr2 = arr1[1].split('&')
 			connId = arr2[0]
+		'''
 		else:
 			arr1 = html.split('" name="connId"')
 			if len(arr1) > 1:
 				connId = arr1[1].split('"').pop()
+		'''
 		print 'connId'
 		print connId
 		if connId:
 			msgUrl = self.CHAT_URL + connId
 			self.loadPage(msgUrl)
-			self.saveScreenshot('LNS05.png')
+			if self.debug:
+				self.saveScreenshot('LNS05.png')
 			textarea = self.waitShowElement(self.TEXTBOX_MESSAGE)
 			# checkbox = self.getElement('#enter-to-send-checkbox')
 			# self.click(checkbox)
-			textarea.send_keys(body)
-			textarea.send_keys('\n\r')
-			textarea.send_keys('\n\r')
+			try:
+				textarea.send_keys(body)
+				textarea.send_keys('\n\r')
+				textarea.send_keys('\n\r')
+			except:
+				pass
 			# button = self.getElement('.message-submit')
 			# self.click(button)
-			self.saveScreenshot('LNS06.png')
+			if self.debug:
+				self.saveScreenshot('LNS06.png')
 			print 'Message sent to: ' + to
-			return body + ' ' + to
+			time.sleep(0.5)
+			return 'OK'
 		else:
 			print 'Message was not sent to: ' + to
-			self.saveScreenshot('LNS07.png')
+			if self.debug:
+				self.saveScreenshot('LNS07.png')
 			return 'User not found'
 
 	def read_all_messages(self):

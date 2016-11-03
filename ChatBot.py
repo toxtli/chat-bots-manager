@@ -32,6 +32,7 @@ class ChatBot:
 		instances = {}
 
 		def GET(self, data):
+			print 'New request'
 			exit = {'status':'error', 'data':'Invalid arguments'}
 			arrData = data.split('/')
 			if len(arrData) >= 4:
@@ -44,21 +45,26 @@ class ChatBot:
 				link = None
 				if platform == 'twitterapi':
 					if not instance in self.instances:
+						print 'Creating instance'
 						self.instances[instance] = TwitterChat(configFile)
 						self.instances[instance].start()
 				elif platform == 'twitter':
 					if not instance in self.instances:
+						print 'Creating instance'
 						self.instances[instance] = TwitterWeb(configFile)
 						self.instances[instance].start()
 				elif platform == 'facebook':
 					if not instance in self.instances:
+						print 'Creating instance'
 						self.instances[instance] = FacebookChat(configFile)
 						self.instances[instance].start()
 				elif platform == 'linkedin':
 					if not instance in self.instances:
+						print 'Creating instance'
 						self.instances[instance] = LinkedinChat(configFile)
 						self.instances[instance].start()
 				if instance in self.instances:
+					print 'Executing instance'
 					exit = self.instances[instance].bot_exec(section, action, web.input())
 			return json.dumps(exit)
 
@@ -66,6 +72,7 @@ class ChatBot:
 		thread = threading.Thread(target=self.run)
 		thread.setDaemon(True)
 		thread.start()
+		print 'Server is ready to serve'
 
 	def run(self):
 		port = 8080

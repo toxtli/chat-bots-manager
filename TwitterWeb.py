@@ -154,7 +154,10 @@ class TwitterWeb(SeleniumHelper):
 
 	def send_message(self, body, to, image):
 		url = self.WRITE_URL
+		print 'Loading message page ...'
 		self.loadPage(url)
+		print 'Page loaded'
+		print 'Typing'
 		if self.DEBUG:
 			self.saveScreenshot('screenshot2.png');
 		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
@@ -164,7 +167,7 @@ class TwitterWeb(SeleniumHelper):
 		
 		button = self.getElement(self.SUBMIT_BUTTON)
 		self.click(button)
-
+		print 'Sent'
 		# textarea.send_keys('\r\n')
 		# self.saveScreenshot('screenshot3.png');
 		return 'OK'
