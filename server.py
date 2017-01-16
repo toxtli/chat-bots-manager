@@ -1,3 +1,6 @@
+# python server.py
+# curl http://localhost:8080/bot/twitter/twitter-config/msg/send?body=Hi
+
 import sys
 from ChatBot import ChatBot
 

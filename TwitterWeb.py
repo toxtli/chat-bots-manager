@@ -118,6 +118,8 @@ class TwitterWeb(SeleniumHelper):
 					print "TEST03"
 					newId = self.get_real_id(params['id'])
 					exit = {'status':'OK', 'data':{'id': newId}}
+		if exit['data'] != 'OK':
+			exit['status'] = 'ERROR'
 		exit['timestamp'] = str(time.time())
 		return exit
 
@@ -171,52 +173,62 @@ class TwitterWeb(SeleniumHelper):
 
 
 	def send_message(self, body, to=None, image=None):
-		message = body
-		if to:
-			message = to + " " + message
-		url = self.WRITE_URL
-		print 'Loading message page ...'
-		self.loadPage(url)
-		print 'Page loaded'
-		print 'Typing'
-		if self.DEBUG:
-			self.saveScreenshot('screenshot2.png');
-		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
-		textarea.send_keys(message)
-		# textarea.send_keys(Keys.TAB)
-		# textarea.send_keys(Keys.RETURN)
-		
-		button = self.getElement(self.SUBMIT_BUTTON)
-		self.click(button)
-		print 'Sent'
-		# textarea.send_keys('\r\n')
-		# self.saveScreenshot('screenshot3.png');
-		return 'OK'
+		try:
+			message = body
+			if to:
+				message = to + " " + message
+			url = self.WRITE_URL
+			print 'Loading message page ...'
+			self.loadPage(url)
+			print 'Page loaded'
+			print 'Typing'
+			if self.DEBUG:
+				self.saveScreenshot('screenshot2.png');
+			textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
+			textarea.send_keys(message)
+			# textarea.send_keys(Keys.TAB)
+			# textarea.send_keys(Keys.RETURN)
+			
+			button = self.getElement(self.SUBMIT_BUTTON)
+			self.click(button)
+			print 'Sent'
+			# textarea.send_keys('\r\n')
+			# self.saveScreenshot('screenshot3.png');
+			return 'OK'
+		except Exception as e:
+			print "Message not sent"
+			print sys.exc_info()
+			return str(e)
 
 	def reply_message(self, body, id, to=None, image=None):
-		message = body
-		if to:
-			message = to + " " + message
-		url = self.REPLY_URL + id
-		print 'Loading message page ...'
-		self.loadPage(url)
-		print 'Page loaded'
-		print 'Typing'
-		if self.DEBUG:
-			self.saveScreenshot('screenshot2.png');
-		button = self.waitShowElement(self.REPLY_BUTTON)
-		self.click(button)
-		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
-		textarea.send_keys(message)
-		# textarea.send_keys(Keys.TAB)
-		# textarea.send_keys(Keys.RETURN)
-		# textarea.submit()
-		button = self.getElement(self.REPLY_SEND_BUTTON)
-		self.click(button)
-		print 'Sent'
-		# textarea.send_keys('\r\n')
-		# self.saveScreenshot('screenshot3.png');
-		return 'OK'
+		try:
+			message = body
+			if to:
+				message = to + " " + message
+			url = self.REPLY_URL + id
+			print 'Loading message page ...'
+			self.loadPage(url)
+			print 'Page loaded'
+			print 'Typing'
+			if self.DEBUG:
+				self.saveScreenshot('screenshot2.png');
+			button = self.waitShowElement(self.REPLY_BUTTON)
+			self.click(button)
+			textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
+			textarea.send_keys(message)
+			# textarea.send_keys(Keys.TAB)
+			# textarea.send_keys(Keys.RETURN)
+			# textarea.submit()
+			button = self.getElement(self.REPLY_SEND_BUTTON)
+			self.click(button)
+			print 'Sent'
+			# textarea.send_keys('\r\n')
+			# self.saveScreenshot('screenshot3.png');
+			return 'OK'
+		except Exception as e:
+			print "Message not sent"
+			print sys.exc_info()
+			return str(e)
 
 	def read_messages(self, to):
 		exit = []

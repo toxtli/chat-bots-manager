@@ -28,7 +28,7 @@ class ChatBot:
 	        return exit
 
 	class bot_commands:
-		configPath = '../../config/'
+		configPath = './'
 		instances = {}
 
 		def GET(self, data):

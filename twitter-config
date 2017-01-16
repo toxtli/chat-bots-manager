@@ -1,0 +1,8 @@
+[credentials]
+login_user_value=USER@MAIL.COM
+login_pass_value=USER_PASSWORD
+screen_name=SCREEN_NAME
+consumer_key=CONSUMER_KEY
+consumer_secret=CONSUMER_SECRET
+access_token=ACCESS_TOKEN
+access_token_secret=ACCESS_TOKEN_SECRET

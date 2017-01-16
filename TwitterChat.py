@@ -48,6 +48,8 @@ class TwitterChat:
 					exit['data'] = self.read_messages(params['to'])
 				else:
 					exit['data'] = self.read_all_messages()
+		if exit['data'] != 'OK':
+			exit['status'] = 'ERROR'
 		exit['timestamp'] = str(time.time())
 		return exit
 
