@@ -12,6 +12,8 @@ class TwitterWeb(SeleniumHelper):
 	DEBUG = False
 	INITIAL_URL = 'https://mobile.twitter.com/login'
 	WRITE_URL = 'https://mobile.twitter.com/compose/tweet'
+	REPLY_URL = 'https://mobile.twitter.com/a/status/'
+	# REPLY_URL = 'https://mobile.twitter.com/alcanzarlameta/reply/'
 	SUBMIT_BUTTON = 'button[data-testid="tweet-button"]'
 
 	INITIAL_MOBILE_URL = 'https://m.facebook.com/'
@@ -22,7 +24,7 @@ class TwitterWeb(SeleniumHelper):
 	ITEM_ID = 'input[name=ft_ent_identifier]'
 	ITEM_TEXT = '.text_exposed_root'
 	ITEM_CONTENT = '.userContent > p'
-	LOGIN_USER_PATH = '#session\\[username_or_email\\]'
+	LOGIN_USER_PATH = '[name="session[username_or_email]"]'
 	LOGIN_PASS_PATH = '#session\\[password\\]'
 	LOGIN_SUBMIT_PATH = '#loginbutton > input[type="submit"]'
 	SEARCH_BAR_PATH = 'input.inputtext'
@@ -41,6 +43,8 @@ class TwitterWeb(SeleniumHelper):
 	POST_COMMENT_BLOCKS = '.UFICommentContent'
 	POST_COMMENT_NAME = '.UFICommentActorName'
 	POST_COMMENT_TEXT = '.UFICommentBody'
+	REPLY_BUTTON = '[data-testid="reply"]'
+	REPLY_SEND_BUTTON = '[data-testid="tweet-button"]'
 
 	MESSAGES_LIST = '.webMessengerMessageGroup'
 	MESSAGE_FROM = 'div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > strong:nth-child(1) > a:nth-child(1)'
@@ -60,11 +64,25 @@ class TwitterWeb(SeleniumHelper):
 		exit = {'status': 'OK', 'data': 'test'}
 		if section == 'msg':
 			if action == 'send':
-				if 'body' in params and 'to' in params:
+				if 'body' in params:
+					to = None
+					if 'to' in params:
+						to = params['to']
 					image = None
 					if 'image' in params:
 						image = params['image']
-					exit['data'] = self.send_message(params['body'], params['to'], image)
+					exit['data'] = self.send_message(params['body'], to, image)
+				else:
+					exit['data'] = json.dumps(params)
+			elif action == 'reply':
+				if 'body' in params and 'id' in params:
+					to = None
+					if 'to' in params:
+						to = params['to']
+					image = None
+					if 'image' in params:
+						image = params['image']
+					exit['data'] = self.reply_message(params['body'], params['id'], to, image)
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
@@ -152,7 +170,10 @@ class TwitterWeb(SeleniumHelper):
 		return self.get_user_id(self.INITIAL_URL + id)
 
 
-	def send_message(self, body, to, image):
+	def send_message(self, body, to=None, image=None):
+		message = body
+		if to:
+			message = to + " " + message
 		url = self.WRITE_URL
 		print 'Loading message page ...'
 		self.loadPage(url)
@@ -161,11 +182,36 @@ class TwitterWeb(SeleniumHelper):
 		if self.DEBUG:
 			self.saveScreenshot('screenshot2.png');
 		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
-		textarea.send_keys(to + ' ' + body)
+		textarea.send_keys(message)
 		# textarea.send_keys(Keys.TAB)
 		# textarea.send_keys(Keys.RETURN)
 		
 		button = self.getElement(self.SUBMIT_BUTTON)
+		self.click(button)
+		print 'Sent'
+		# textarea.send_keys('\r\n')
+		# self.saveScreenshot('screenshot3.png');
+		return 'OK'
+
+	def reply_message(self, body, id, to=None, image=None):
+		message = body
+		if to:
+			message = to + " " + message
+		url = self.REPLY_URL + id
+		print 'Loading message page ...'
+		self.loadPage(url)
+		print 'Page loaded'
+		print 'Typing'
+		if self.DEBUG:
+			self.saveScreenshot('screenshot2.png');
+		button = self.waitShowElement(self.REPLY_BUTTON)
+		self.click(button)
+		textarea = self.waitShowElement(self.MESSAGE_TEXTAREA)
+		textarea.send_keys(message)
+		# textarea.send_keys(Keys.TAB)
+		# textarea.send_keys(Keys.RETURN)
+		# textarea.submit()
+		button = self.getElement(self.REPLY_SEND_BUTTON)
 		self.click(button)
 		print 'Sent'
 		# textarea.send_keys('\r\n')
@@ -219,7 +265,9 @@ class TwitterWeb(SeleniumHelper):
 		self.LOGIN_USER_VALUE = config.get('credentials', 'login_user_value')
 		self.LOGIN_PASS_VALUE = config.get('credentials', 'login_pass_value')
 		# self.client = fbchat.Client(self.LOGIN_USER_VALUE, self.LOGIN_PASS_VALUE)
-		self.driver = webdriver.Firefox()
+		profile = webdriver.FirefoxProfile()
+		profile.set_preference("javascript.enabled", False)
+		self.driver = webdriver.Firefox(profile)
 		# self.driver = webdriver.PhantomJS()
 		# self.driver = webdriver.Chrome('./chromedriver')
 		self.driver.set_page_load_timeout(self.TIMEOUT)

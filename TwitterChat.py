@@ -22,11 +22,25 @@ class TwitterChat:
 		exit = {'status':'OK', 'data':'test'}
 		if section == 'msg':
 			if action == 'send':
-				if 'body' in params and 'to' in params:
+				if 'body' in params:
+					to = None
+					if 'to' in params:
+						to = params['to']
 					image = None
 					if 'image' in params:
 						image = params['image']
-					exit['status'] = self.send_message(params['body'], params['to'], image)
+					exit['data'] = self.send_message(params['body'], to, image)
+				else:
+					exit['data'] = json.dumps(params)
+			elif action == 'reply':
+				if 'body' in params and 'id' in params:
+					to = None
+					if 'to' in params:
+						to = params['to']
+					image = None
+					if 'image' in params:
+						image = params['image']
+					exit['data'] = self.reply_message(params['body'], params['id'], to, image)
 				else:
 					exit['data'] = json.dumps(params)
 			elif action == 'read':
@@ -37,15 +51,35 @@ class TwitterChat:
 		exit['timestamp'] = str(time.time())
 		return exit
 
-	def send_message(self, body, to, image=None):
+	def send_message(self, body, to=None, image=None):
 		print "Sending message"
-		message = to + " " + body
+		message = body
+		if to:
+			message = to + " " + message
 		try:
 			if image:
-				self.api.update_with_media(status=message,filename=image)
+				self.api.update_with_media(status=message, filename=image)
 			else:
 				self.api.update_status(status=message)
 			print "Message sent"
+			return 'OK'
+		except Exception as e:
+			print "Message not sent"
+			print sys.exc_info()
+			return str(e)
+
+	def reply_message(self, body, id, to=None, image=None):
+		print "Reply message"
+		message = body
+		if to:
+			message = to + " " + message
+		try:
+			if image:
+				self.api.update_with_media(status=message, filename=image, in_reply_to_status=id)
+			else:
+				print "Using reply"
+				self.api.update_status(status=message, in_reply_to_status=id)
+			print "Message replied"
 			return 'OK'
 		except Exception as e:
 			print "Message not sent"
